@@ -22,36 +22,37 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleAudio.textContent = muted ? '🔇' : '🔊';
   });
 
-  const baseUrl = 'https://script.google.com/macros/s/AKfycbysGQopzfrmwPaoDyDfgh9GlwMZPLfg1V-KUDeJxp_mFQ5X0zAZMYuR8d_6WjeM47h83g/exec';
+  const baseUrl = 'https://script.google.com/macros/s/AKfycbxN8x7yN459T5RNfY7kRMNNDpGPoQSizQFMNEnQ--otlngiuhgCsPi_UHG0ocWYrchR4Q/exec';
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    result.textContent = 'Validando...';
-    result.style.color = '';
-
+    result.textContent = 'Validando…';
+  
     const email = document.getElementById('email').value.trim();
-    const key = document.getElementById('key').value.trim();
-    const cb = 'cb_' + Date.now();
-
-    window[cb] = data => {
-      if (data.success) {
-        result.textContent = `✅ ${data.message}`;
-        result.style.color = 'lightgreen';
-        setTimeout(() => {
-          loginContainer.classList.add('hidden');
-          appContainer.classList.remove('hidden');
-        }, 1000);
-      } else {
-        result.textContent = `❌ ${data.message}`;
-        result.style.color = 'red';
-      }
-      delete window[cb];
-      document.head.removeChild(script);
-    };
-
+    const key   = document.getElementById('key').value.trim();
+    const cb    = 'cb_' + Date.now();
+  
+    // creás el <script>
     const script = document.createElement('script');
     script.src = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}&callback=${cb}`;
     document.head.appendChild(script);
+  
+    // si no responde en 10s, limpias igual
+    const cleanupTimeout = setTimeout(() => {
+      delete window[cb];
+      script.remove();
+    }, 10000);
+  
+    window[cb] = data => {
+      clearTimeout(cleanupTimeout);
+      if (data.success) {
+        // …
+      } else {
+        // …
+      }
+      delete window[cb];
+      script.remove();
+    };
   });
 
   nameForm.addEventListener('submit', e => {
