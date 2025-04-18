@@ -7,7 +7,7 @@ document.getElementById("licenseForm").addEventListener("submit", async (e) => {
   result.innerText = "Validando...";
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbwJXaeI4jutqUXXfzhJfcfMizY33htUdO9TNNfME09Cp4TqqoDI7HDV9WK-yOTEYMDa4Q/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwFR6_9_15rFXdt2ypnYoGNy4AlqpfUzZH5h7vH3ydS4oQJC7xHkz9uYefYH-iq71MSXg/exec', {
       method: 'POST',
       body: new URLSearchParams({ email, key })
     });
