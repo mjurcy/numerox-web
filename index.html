@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>NumeroX Web</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:,">
 </head>
 <body>
-  <div id="stars"></div>
-  <div id="stars2"></div>
-  <div id="stars3"></div>
-
-  <button id="mute-toggle">🔊</button>
-
   <div class="container" id="license-container">
+    <button id="mute-toggle">🔊</button>
     <h1>NumeroX Web</h1>
     <form id="licenseForm">
-      <input type="email" id="email" placeholder="Tu correo electrónico" required />
-      <input type="text" id="key" placeholder="Clave de licencia" required />
+      <input type="email" id="email" placeholder="Tu correo electrónico" required>
+      <input type="text" id="key" placeholder="Clave de licencia" required>
       <button type="submit">Validar Licencia</button>
     </form>
     <div id="result"></div>
   </div>
 
   <div class="container" id="main-app" style="display:none;">
-    <h1>NumeroX Web</h1>
-    <form id="calcForm">
-      <input type="text" id="input" placeholder="Ingresá tu nombre completo" required />
-      <button type="submit">Calcular</button>
-    </form>
-    <textarea id="output" readonly></textarea>
+    <button id="mute-toggle">🔊</button>
+    <h2>Calculadora de Numerología</h2>
+    <input type="text" id="nombre" placeholder="Ingresá tu nombre completo" />
+    <button id="calcular">Calcular</button>
+    <textarea id="resultado" readonly></textarea>
   </div>
 
+  <audio id="bg-music" loop>
+    <source src="relax_music.mp3" type="audio/mpeg">
+  </audio>
+
   <div class="brand">Epiqur</div>
-  <audio id="bg-music" src="relax_music.mp3" loop></audio>
   <script src="script.js"></script>
 </body>
 </html>
