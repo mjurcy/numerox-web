@@ -9,7 +9,7 @@ document.getElementById("licenseForm").addEventListener("submit", async (e) => {
   result.style.color = "#000";
 
   try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzWc136X6RQ3dc-LspqBJiP6upHWkV2DXMrE9OiDg03__oX1Lzx-zRFuSMXe7TtI9WVkg/exec', {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbwx1-n_rv5Vdf3TjI3WBKkbC_o8SW2b4iBrvfczGWrjn1umgtqr3h3FU46qG3UNgWSIBQ/exec', {
       method: 'POST',
       body: new URLSearchParams({ email, key })
     });
