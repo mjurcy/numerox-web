@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const key = document.getElementById('key').value.trim();
 
     try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbwUSISqOuAE-lqO7HBRf2KNp25rJa5dv-YMRM9WhPrDoQEEdPpcS1-CQ41hJRF0QetGgQ/exec', {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyO-eKVhpO4m33MObMTj4QfWXtlef-qMSdPVeYyw2BraJHKtQvwOUtdsfVeyPfqG1JiTA/exec', {
         method: 'POST',
         body: new URLSearchParams({ email, key })
       });
