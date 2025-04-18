@@ -2,20 +2,16 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NumeroX Web</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="container hidden" id="mainApp">
-    <h1>NumeroX Web</h1>
-    <textarea id="inputText" placeholder="Escribí un nombre completo..."></textarea>
-    <button id="calcButton">Calcular</button>
-    <div id="results"></div>
+  <audio id="bg-music" src="relax_music.mp3" loop autoplay></audio>
+  <div class="toggle-music">
+    <button id="mute-btn">🔊</button>
   </div>
 
-  <div class="login-container" id="loginScreen">
+  <div class="container" id="license-container">
     <h1>NumeroX Web</h1>
     <form id="licenseForm">
       <input type="email" id="email" placeholder="Tu correo electrónico" required>
@@ -25,12 +21,14 @@
     <div id="result"></div>
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="background.mp3" type="audio/mpeg">
-  </audio>
-  <button class="mute-btn" id="muteBtn">🔊</button>
-  <div class="brand">Epiqur</div>
+  <div class="container hidden" id="calc-container">
+    <h1>NumeroX Web</h1>
+    <input type="text" id="nameInput" placeholder="Ingresá tu nombre completo">
+    <button id="calcBtn">Calcular</button>
+    <div id="output"></div>
+  </div>
 
+  <div class="brand">Epiqur</div>
   <script src="script.js"></script>
 </body>
 </html>
