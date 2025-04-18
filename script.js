@@ -1,21 +1,37 @@
-document.getElementById("licenseForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('licenseForm');
+  const resultDiv = document.getElementById('result');
 
-  const email = document.getElementById("email").value.trim();
-  const key = document.getElementById("key").value.trim();
-  const result = document.getElementById("result");
-  result.innerText = "Validando...";
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    resultDiv.textContent = 'Validando...';
+    resultDiv.style.color = '';
 
-  try {
-    const response = await fetch('https://script.google.com/macros/s/AKfycbzM5SLKSToPyK-69J7qj-IFJpqw7awTdW9rrOuP6e8aUHV067NZUOjlumdBHdj8OTvm0g/exec', {
-      method: 'POST',
-      body: new URLSearchParams({ email, key })
-    });
+    const email = document.getElementById('email').value.trim();
+    const key   = document.getElementById('key').value.trim();
 
-    const data = await response.json();
-    result.innerText = data.message;
-  } catch (error) {
-    result.innerText = "Error al conectar con el servidor.";
-    console.error("Error de conexión:", error);
-  }
+    try {
+      const baseUrl = 'https://script.google.com/macros/s/AKfycbzLplw0E4OLOaomeIUuO6NUGIReTt1CxzvlpoU_PlSKwb8P0vqm6fkywrq-mk80yXu0KQ/exec';
+      const url = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}`;
+
+      const response = await fetch(url); // GET por defecto, sin body
+
+      if (!response.ok) throw new Error(`Status ${response.status}`);
+
+      const data = await response.json();
+
+      if (data.success) {
+        resultDiv.textContent = `✅ ${data.message}`;
+        resultDiv.style.color = 'green';
+      } else {
+        resultDiv.textContent = `❌ ${data.message}`;
+        resultDiv.style.color = 'red';
+      }
+
+    } catch (err) {
+      console.error(err);
+      resultDiv.textContent = '❌ Error de conexión';
+      resultDiv.style.color = 'red';
+    }
+  });
 });
