@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NumeroX Web</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="container hidden" id="mainApp">
-    <h1>NumeroX Web</h1>
-    <textarea id="inputText" placeholder="Escribí un nombre completo..."></textarea>
-    <button id="calcButton">Calcular</button>
-    <div id="results"></div>
-  </div>
+  <div id="stars"></div>
+  <div id="stars2"></div>
+  <div id="stars3"></div>
 
-  <div class="login-container" id="loginScreen">
+  <button id="mute-toggle">🔊</button>
+
+  <div class="container" id="license-container">
     <h1>NumeroX Web</h1>
     <form id="licenseForm">
-      <input type="email" id="email" placeholder="Tu correo electrónico" required>
-      <input type="text" id="key" placeholder="Clave de licencia" required>
+      <input type="email" id="email" placeholder="Tu correo electrónico" required />
+      <input type="text" id="key" placeholder="Clave de licencia" required />
       <button type="submit">Validar Licencia</button>
     </form>
     <div id="result"></div>
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="background.mp3" type="audio/mpeg">
-  </audio>
-  <button class="mute-btn" id="muteBtn">🔊</button>
-  <div class="brand">Epiqur</div>
+  <div class="container" id="main-app" style="display:none;">
+    <h1>NumeroX Web</h1>
+    <form id="calcForm">
+      <input type="text" id="input" placeholder="Ingresá tu nombre completo" required />
+      <button type="submit">Calcular</button>
+    </form>
+    <textarea id="output" readonly></textarea>
+  </div>
 
+  <div class="brand">Epiqur</div>
+  <audio id="bg-music" src="relax_music.mp3" loop></audio>
   <script src="script.js"></script>
 </body>
 </html>

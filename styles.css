@@ -1,69 +1,100 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
   margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0d0b1f;
+  color: #00fff7;
+  overflow: hidden;
 }
-.hidden { display: none; }
-.container, .login-container {
-  background: white;
+
+.container {
+  max-width: 500px;
+  margin: 100px auto;
+  background: #161332;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  width: 90%;
-  max-width: 500px;
+  box-shadow: 0 0 30px #00fff766;
   text-align: center;
 }
+
 h1 {
-  margin-bottom: 20px;
-  color: #004d40;
+  margin-bottom: 25px;
+  font-size: 2rem;
+  color: #00fff7;
 }
-textarea, input {
+
+input, button, textarea {
   width: 100%;
   padding: 12px;
   margin: 10px 0;
-  border: 2px solid #b2dfdb;
-  border-radius: 8px;
   font-size: 16px;
-  resize: vertical;
-}
-button {
-  background: #00796b;
-  color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 16px;
   border-radius: 8px;
+}
+
+input, textarea {
+  background: #fff;
+  color: #000;
+}
+
+textarea {
+  height: 150px;
+  resize: none;
+  background: #eee;
+}
+
+button {
+  background-color: #00fff7;
+  color: #000;
+  font-weight: bold;
   cursor: pointer;
 }
+
 button:hover {
-  background: #004d40;
+  background-color: #00ccc5;
 }
-#results {
-  margin-top: 20px;
-  background: #e0f2f1;
+
+#mute-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #00fff7;
+  color: #000;
+  border: none;
+  border-radius: 50%;
   padding: 10px;
-  border-radius: 8px;
-  white-space: pre-wrap;
-  font-family: monospace;
+  font-size: 18px;
+  cursor: pointer;
 }
+
 .brand {
   position: fixed;
-  bottom: 8px;
-  right: 12px;
+  right: 20px;
+  bottom: 10px;
   font-style: italic;
-  color: #777;
+  color: #ccc;
 }
-.mute-btn {
+
+/* Fondo con estrellas (espacio esotérico) */
+#stars, #stars2, #stars3 {
   position: fixed;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background: transparent url('https://raw.githubusercontent.com/VincentGarreau/particles.js/master/demo/media/star.png') repeat top center;
+  z-index: -1;
+  animation: moveStars 200s linear infinite;
+}
+
+#stars2 {
+  animation-duration: 300s;
+  opacity: 0.5;
+}
+
+#stars3 {
+  animation-duration: 400s;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
 }
