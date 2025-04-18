@@ -1,37 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('licenseForm');
-  const resultDiv = document.getElementById('result');
+  const res  = document.getElementById('result');
 
-  form.addEventListener('submit', async (e) => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
-    resultDiv.textContent = 'Validando...';
-    resultDiv.style.color = '';
+    res.textContent = 'Validando...'; res.style.color = '';
 
     const email = document.getElementById('email').value.trim();
     const key   = document.getElementById('key').value.trim();
+    const baseUrl = 'https://script.google.com/macros/s/AKfycbwCr9uRAcqodDCr4MfYAZtLCHZc8uxjeCDTLLRfumFFngd_skYwO8FJeGPO9J5Y6i2d_Q/exec'; 
+    const url = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}`;
 
     try {
-      const baseUrl = 'https://script.google.com/macros/s/AKfycbzLplw0E4OLOaomeIUuO6NUGIReTt1CxzvlpoU_PlSKwb8P0vqm6fkywrq-mk80yXu0KQ/exec';
-      const url = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}`;
-
-      const response = await fetch(url); // GET por defecto, sin body
-
-      if (!response.ok) throw new Error(`Status ${response.status}`);
-
-      const data = await response.json();
-
-      if (data.success) {
-        resultDiv.textContent = `✅ ${data.message}`;
-        resultDiv.style.color = 'green';
+      const r = await fetch(url, { mode: 'cors' });
+      if (!r.ok) throw new Error(r.status);
+      const d = await r.json();
+      if (d.success) {
+        res.textContent = `✅ ${d.message}`; res.style.color = 'green';
       } else {
-        resultDiv.textContent = `❌ ${data.message}`;
-        resultDiv.style.color = 'red';
+        res.textContent = `❌ ${d.message}`; res.style.color = 'red';
       }
-
-    } catch (err) {
-      console.error(err);
-      resultDiv.textContent = '❌ Error de conexión';
-      resultDiv.style.color = 'red';
+    } catch {
+      res.textContent = '❌ Error de conexión'; res.style.color = 'red';
     }
   });
 });
