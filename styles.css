@@ -96,3 +96,24 @@ button:hover {
 .hidden {
   display: none;
 }
+
+/* hace que todos los inputs sean bloques centrados */
+input {
+  display: block;
+  margin: 15px auto 0 auto; /* 15px arriba, centrado hor. */
+}
+
+/* inputs de licencia algo más chicos */
+#login-container input {
+  width: 60%;   /* eje. 60% del ancho del contenedor */
+}
+
+/* input de nombre un poco más ancho, pero también centrado */
+#app-container input {
+  width: 80%;
+}
+
+/* si quisieras centrar el texto dentro del input: */
+input {
+  text-align: center;
+}
