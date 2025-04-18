@@ -1,58 +1,69 @@
 body {
   font-family: 'Segoe UI', sans-serif;
-  background-color: #0b0c2a;
+  background: linear-gradient(to right, #e0f7fa, #e0f2f1);
   margin: 0;
   padding: 0;
-  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.container {
-  background-color: #161740;
-  margin: 60px auto;
-  padding: 40px;
-  border-radius: 20px;
-  width: 80%;
+.hidden { display: none; }
+.container, .login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  width: 90%;
   max-width: 500px;
-  box-shadow: 0 0 30px #00ffe7;
+  text-align: center;
 }
 h1 {
-  text-align: center;
-  color: #00ffe7;
+  margin-bottom: 20px;
+  color: #004d40;
 }
-input, button {
-  display: block;
-  margin: 15px auto;
-  padding: 15px;
-  width: 90%;
-  border-radius: 10px;
-  border: none;
+textarea, input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #b2dfdb;
+  border-radius: 8px;
   font-size: 16px;
+  resize: vertical;
 }
 button {
-  background-color: #00ffe7;
-  color: #0b0c2a;
-  font-weight: bold;
+  background: #00796b;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
 }
-#output {
-  margin-top: 30px;
-  background-color: #12132f;
-  padding: 20px;
-  border-radius: 10px;
-  font-family: monospace;
+button:hover {
+  background: #004d40;
+}
+#results {
+  margin-top: 20px;
+  background: #e0f2f1;
+  padding: 10px;
+  border-radius: 8px;
   white-space: pre-wrap;
-  overflow-y: auto;
+  font-family: monospace;
 }
 .brand {
-  text-align: right;
-  margin: 30px;
-  color: #888;
+  position: fixed;
+  bottom: 8px;
+  right: 12px;
   font-style: italic;
+  color: #777;
 }
-.hidden {
-  display: none;
-}
-.toggle-music {
-  position: absolute;
+.mute-btn {
+  position: fixed;
   top: 10px;
   right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
 }
