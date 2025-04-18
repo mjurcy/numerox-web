@@ -1,11 +1,98 @@
-.spaced-button {
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a1a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.stars {
+  background: radial-gradient(#ffffff55 1px, transparent 1px);
+  background-size: 40px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  animation: moveStars 100s linear infinite;
+}
+
+@keyframes moveStars {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
+}
+
+.container {
+  background: #1a1a2f;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  width: 90%;
+  max-width: 600px;
+  margin: 80px auto;
+  text-align: center;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
   margin-top: 15px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
 }
 
 textarea {
-  height: 180px;
-  resize: none;
-  background: #1a1a1a;  /* más claro que antes */
+  height: 160px;
+  background: #111;
   color: #0f0;
   font-family: monospace;
+  resize: none;
+}
+
+button {
+  background: #00ffff;
+  color: #000;
+  padding: 14px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #00cccc;
+}
+
+.brand {
+  position: fixed;
+  bottom: 10px;
+  right: 20px;
+  font-style: italic;
+  color: #aaa;
+}
+
+.audio-control-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+
+.mute-button {
+  background: #00ffff;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
