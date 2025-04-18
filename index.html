@@ -15,9 +15,17 @@
       <button type="submit">Validar Licencia</button>
     </form>
     <div id="result"></div>
+
+    <!-- Zona para cálculo (inicialmente oculta) -->
+    <div id="calculator" style="display:none;">
+      <hr>
+      <h2>Cálculo de numerología</h2>
+      <input type="text" id="nameInput" placeholder="Nombre completo">
+      <button onclick="calcularNumerologia()">Calcular</button>
+      <pre id="calcResult"></pre>
+    </div>
   </div>
   <div class="brand">Epiqur</div>
-
   <script src="script.js"></script>
 </body>
 </html>
