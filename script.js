@@ -22,20 +22,18 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleAudio.textContent = muted ? '🔇' : '🔊';
   });
 
-  const baseUrl = 'https://script.google.com/macros/s/AKfycbxUyvCP27HPhD2-6t1Cz49Wp3zuZWYkzasvqmN3cW0NephEW9zGXwNnxAnqKQtqvpWV0w/exec';
+  const baseUrl = 'https://script.google.com/macros/s/AKfycbwK5YRqJOhm_Biv3vBSj-3txXYnV0-VbmvE_DnWY32YJGboWQ4IKy8LTTUgVzDIJD7dFg/exec';
 
   form.addEventListener('submit', e => {
     e.preventDefault();
-    result.textContent = 'Validando…';
-  
+    result.textContent = 'Validando...';
+    result.style.color = '';
+
     const email = document.getElementById('email').value.trim();
-    const key   = document.getElementById('key').value.trim();
-    const cb    = 'cb_' + Date.now();
-  
-    let cleanupTimeout;
-    // definí el callback ANTES de inyectar el script
+    const key = document.getElementById('key').value.trim();
+    const cb = 'cb_' + Date.now();
+
     window[cb] = data => {
-      clearTimeout(cleanupTimeout);
       if (data.success) {
         result.textContent = `✅ ${data.message}`;
         result.style.color = 'lightgreen';
@@ -48,20 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
         result.style.color = 'red';
       }
       delete window[cb];
-      script.remove();
+      document.head.removeChild(script);
     };
-  
+
     const script = document.createElement('script');
     script.src = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}&callback=${cb}`;
-  
-    // si no responde en 10 s, limpias igual
-    cleanupTimeout = setTimeout(() => {
-      delete window[cb];
-      script.remove();
-      result.textContent = '❌ Error de conexión';
-      result.style.color = 'red';
-    }, 10000);
-  
     document.head.appendChild(script);
   });
 
@@ -97,11 +86,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       total += sum;
-      outputText += `${word}: ${sum}\n`;
-    });
-
-    outputText += `\nTOTAL: ${total}`;
-    output.value = outputText;
-    output.scrollTop = output.scrollHeight;
-  });
-});
+      outputText += `${word}: ${sum}\
