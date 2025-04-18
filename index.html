@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NumeroX Web</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,12 +12,13 @@
     <button id="toggleAudio" class="mute-button">🔊</button>
   </div>
   <div class="stars"></div>
+
   <div class="container" id="login-container">
     <h1>NumeroX Web</h1>
     <form id="licenseForm">
       <input type="email" id="email" placeholder="Tu correo electrónico" required />
       <input type="text" id="key" placeholder="Clave de licencia" required />
-      <button type="submit">Validar Licencia</button>
+      <button type="submit" class="spaced-button">Validar Licencia</button>
     </form>
     <div id="result"></div>
   </div>
@@ -26,7 +27,7 @@
     <h2>Calculadora de Numerología</h2>
     <form id="numerologyForm">
       <input type="text" id="name" placeholder="Escribí tu nombre completo" required />
-      <button type="submit">Calcular</button>
+      <button type="submit" class="spaced-button">Calcular</button>
     </form>
     <textarea id="output" readonly></textarea>
   </div>
@@ -36,6 +37,7 @@
   <audio id="bg-music" loop>
     <source src="relax_music.mp3" type="audio/mpeg" />
   </audio>
+
   <script src="script.js"></script>
 </body>
 </html>
