@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     result.style.color = "#333";
 
     try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbwx1-n_rv5Vdf3TjI3WBKkbC_o8SW2b4iBrvfczGWrjn1umgtqr3h3FU46qG3UNgWSIBQ/exec", {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbwUSISqOuAE-lqO7HBRf2KNp25rJa5dv-YMRM9WhPrDoQEEdPpcS1-CQ41hJRF0QetGgQ/exec", {
         method: "POST",
         body: new URLSearchParams({ email, key }),
       });
