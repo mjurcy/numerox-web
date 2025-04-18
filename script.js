@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     toggleAudio.textContent = muted ? '🔇' : '🔊';
   });
 
-  const baseUrl = 'https://script.google.com/macros/s/AKfycbxN8x7yN459T5RNfY7kRMNNDpGPoQSizQFMNEnQ--otlngiuhgCsPi_UHG0ocWYrchR4Q/exec';
+  const baseUrl = 'https://script.google.com/macros/s/AKfycbxUyvCP27HPhD2-6t1Cz49Wp3zuZWYkzasvqmN3cW0NephEW9zGXwNnxAnqKQtqvpWV0w/exec';
 
   form.addEventListener('submit', e => {
     e.preventDefault();
