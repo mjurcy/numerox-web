@@ -6,14 +6,12 @@ document.getElementById("form").addEventListener("submit", async (e) => {
   const output = document.getElementById("output");
 
   if (!email || !key) {
-    output.innerHTML = `<span style="color: red;">Completá ambos campos.</span>`;
+    output.innerHTML = `<span style="color: red;">Por favor, completá ambos campos.</span>`;
     return;
   }
 
-  output.innerHTML = "Validando...";
-
   try {
-    const response = await fetch("https://script.google.com/macros/s/AKfycbzWc136X6RQ3dc-LspqBJiP6upHWkV2DXMrE9OiDg03__oX1Lzx-zRFuSMXe7TtI9WVkg/exec", {
+    const response = await fetch('https://script.google.com/macros/s/AKfycbzWc136X6RQ3dc-LspqBJiP6upHWkV2DXMrE9OiDg03__oX1Lzx-zRFuSMXe7TtI9WVkg/exec', {
       method: 'POST',
       body: new URLSearchParams({ email, key })
     });
@@ -21,11 +19,11 @@ document.getElementById("form").addEventListener("submit", async (e) => {
     const result = await response.json();
 
     if (result.ok) {
-      output.innerHTML = `<span style="color: green;">✅ ${result.message}</span>`;
+      output.innerHTML = `<span style="color: green;">✔ ${result.msg}</span>`;
     } else {
-      output.innerHTML = `<span style="color: red;">❌ ${result.message}</span>`;
+      output.innerHTML = `<span style="color: red;">✘ ${result.msg}</span>`;
     }
-  } catch (err) {
-    output.innerHTML = `<span style="color: red;">Error de conexión con el servidor.</span>`;
+  } catch (error) {
+    output.innerHTML = `<span style="color: red;">✘ Error del servidor: ${error}</span>`;
   }
 });
