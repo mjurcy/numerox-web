@@ -1,31 +1,9 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <title>NumeroX Web</title>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h1>NumeroX Web</h1>
-    <form id="licenseForm">
-      <input type="email" id="email" placeholder="Tu correo electrónico" required>
-      <input type="text" id="key" placeholder="Clave de licencia" required>
-      <button type="submit">Validar Licencia</button>
-    </form>
-    <div id="result"></div>
-
-    <!-- Zona para cálculo (inicialmente oculta) -->
-    <div id="calculator" style="display:none;">
-      <hr>
-      <h2>Cálculo de numerología</h2>
-      <input type="text" id="nameInput" placeholder="Nombre completo">
-      <button onclick="calcularNumerologia()">Calcular</button>
-      <pre id="calcResult"></pre>
-    </div>
-  </div>
-  <div class="brand">Epiqur</div>
-  <script src="script.js"></script>
-</body>
-</html>
+{"name": "numerox_web_app", "type": "code/html", "content": "
+<!DOCTYPE html>\n <html lang="es">\n <head>\n
+    <meta charset="UTF-8">\n
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n <title>NumeroX Web</title>\n
+    <link rel="stylesheet" href="styles.css">\n
+  </head>\n <body>\n <audio id="bg-music" loop autoplay>\n
+      <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/ccCommunity/Kevin_MacLeod/Eric_Skiff_-_Resistor_Anthems/Eric_Skiff_-_01_-_Come_and_Find_Me.mp3\" type="audio/mpeg">\n
+    </audio>\n <button id="mute-toggle">🔊</button>\n\n <div class="container" id="license-screen">\n <h1>NumeroX Web</h1>\n <form id="licenseForm">\n <input type="email" id="email" placeholder="Tu correo electr\u00f3nico" required>\n <input type="text" id="key" placeholder="Clave de licencia" required>\n <button type="submit">Validar Licencia</button>\n </form>\n <div id="result"></div>\n </div>\n\n <div class="container hidden" id="calc-screen">\n <h2>Sumatoria de Nombres</h2>\n <form id="calcForm">\n <input type="text" id="fullName" placeholder="Escrib\u00ed el nombre completo" required>\n <button type="submit">Calcular</button>\n </form>\n <textarea id="output" readonly></textarea>\n </div>\n\n <div class="brand">Epiqur</div>\n\n <script src="script.js"></script>\n </body>\n </html>"}
