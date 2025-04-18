@@ -32,27 +32,37 @@ document.addEventListener('DOMContentLoaded', () => {
     const key   = document.getElementById('key').value.trim();
     const cb    = 'cb_' + Date.now();
   
-    // creás el <script>
-    const script = document.createElement('script');
-    script.src = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}&callback=${cb}`;
-    document.head.appendChild(script);
-  
-    // si no responde en 10s, limpias igual
-    const cleanupTimeout = setTimeout(() => {
-      delete window[cb];
-      script.remove();
-    }, 10000);
-  
+    let cleanupTimeout;
+    // definí el callback ANTES de inyectar el script
     window[cb] = data => {
       clearTimeout(cleanupTimeout);
       if (data.success) {
-        // …
+        result.textContent = `✅ ${data.message}`;
+        result.style.color = 'lightgreen';
+        setTimeout(() => {
+          loginContainer.classList.add('hidden');
+          appContainer.classList.remove('hidden');
+        }, 1000);
       } else {
-        // …
+        result.textContent = `❌ ${data.message}`;
+        result.style.color = 'red';
       }
       delete window[cb];
       script.remove();
     };
+  
+    const script = document.createElement('script');
+    script.src = `${baseUrl}?email=${encodeURIComponent(email)}&key=${encodeURIComponent(key)}&callback=${cb}`;
+  
+    // si no responde en 10 s, limpias igual
+    cleanupTimeout = setTimeout(() => {
+      delete window[cb];
+      script.remove();
+      result.textContent = '❌ Error de conexión';
+      result.style.color = 'red';
+    }, 10000);
+  
+    document.head.appendChild(script);
   });
 
   nameForm.addEventListener('submit', e => {
